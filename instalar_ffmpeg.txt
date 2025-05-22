@@ -1,0 +1,99 @@
+=======================================
+ GUIA DE INSTALAÇÃO DO FFMPEG (WINDOWS)
+=======================================
+
+Este projeto depende do FFmpeg instalado e disponível no PATH do sistema.
+
+-----------------------------
+ O QUE É O FFMPEG?
+-----------------------------
+O FFmpeg é uma ferramenta de linha de comando que permite gravar, converter
+e transmitir áudio e vídeo com altíssimo desempenho.
+
+Você PRECISA dele instalado corretamente para que o projeto funcione.
+
+-----------------------------
+ MÉTODO AUTOMÁTICO (RECOMENDADO)
+-----------------------------
+Pré-requisitos:
+- Windows 10 ou 11
+- Winget funcionando (App Installer instalado)
+
+PASSO A PASSO:
+
+1) Abra o PowerShell COMO ADMINISTRADOR
+
+2) Cole e execute este comando para instalar o FFmpeg:
+
+   winget install --id=Gyan.FFmpeg --source=winget --accept-package-agreements --accept-source-agreements
+
+3) Após instalar, execute este comando para adicionar o FFmpeg ao PATH:
+
+   $ffmpegPath = "C:\Program Files\ffmpeg\bin"
+   if (-Not ($env:Path -like "*$ffmpegPath*")) {
+       [Environment]::SetEnvironmentVariable("Path", $env:Path + ";$ffmpegPath", [EnvironmentVariableTarget]::Machine)
+       Write-Host "FFmpeg instalado e caminho adicionado ao PATH com sucesso!"
+   } else {
+       Write-Host "FFmpeg já está no PATH."
+   }
+
+4) FEECHE o terminal e ABRA NOVAMENTE para testar.
+
+5) Teste digitando:
+   ffmpeg -version
+
+Se aparecer a versão, está funcionando!
+
+-----------------------------
+ MÉTODO MANUAL (ALTERNATIVO)
+-----------------------------
+
+1) Acesse o link abaixo e baixe a versão "ffmpeg-release-essentials.zip":
+   https://www.gyan.dev/ffmpeg/builds/
+
+2) Extraia o conteúdo para a pasta: C:\ffmpeg
+
+   Após extrair, deve existir o arquivo:
+   C:\ffmpeg\bin\ffmpeg.exe
+
+3) Adicione o caminho C:\ffmpeg\bin ao PATH do sistema:
+   - Pressione WIN + R
+   - Digite: sysdm.cpl
+   - Vá na aba "Avançado" e clique em "Variáveis de Ambiente"
+   - Em "Variáveis do sistema", ache a variável "Path" e clique em "Editar"
+   - Clique em "Novo" e cole: C:\ffmpeg\bin
+   - Clique em OK em tudo
+
+4) Abra um novo terminal (CMD ou PowerShell) e digite:
+   ffmpeg -version
+
+Se aparecer a versão, está tudo certo.
+
+-----------------------------
+ VERIFICAR INSTALAÇÃO
+-----------------------------
+Digite no terminal:
+   ffmpeg -version
+
+Se aparecer algo como:
+   ffmpeg version 6.x ...
+
+Então a instalação foi concluída com sucesso.
+
+-----------------------------
+ ERROS COMUNS
+-----------------------------
+
+Erro: 'ffmpeg' não é reconhecido
+> Solução: O caminho C:\ffmpeg\bin não foi adicionado corretamente ao PATH.
+
+Erro: Winget não é reconhecido
+> Solução: Atualize o "App Installer" pela Microsoft Store.
+
+Erro: Acesso negado
+> Solução: Rode o PowerShell como administrador.
+
+-----------------------------
+ PRONTO!
+-----------------------------
+Agora sim, FFmpeg no sistema, tudo funcionando. Execute o projeto e seja feliz.
