@@ -6,7 +6,6 @@ Este é um aplicativo de interface gráfica (GUI) para baixar vídeos e áudios 
 - Baixe vídeos do YouTube em várias resoluções (1080p, 720p, 480p, 360p)
 - Baixe apenas o áudio em MP3
 - Interface simples e intuitiva
-- Barra de progresso
 - Verificação e instrução para instalação do FFmpeg
 
 ## Como usar
@@ -20,11 +19,6 @@ Este é um aplicativo de interface gráfica (GUI) para baixar vídeos e áudios 
    python baixador_yt.py
    ```
 4. Cole o link do vídeo, escolha o diretório de destino, a resolução ou MP3, e clique em "Baixar".
-
-## Dependências
-- customtkinter
-- yt-dlp
-- FFmpeg (deve estar instalado no sistema)
 
 ## Instruções para instalar o FFmpeg
 Consulte o arquivo `instalar_ffmpeg.txt` para um passo a passo detalhado de instalação no Windows.
